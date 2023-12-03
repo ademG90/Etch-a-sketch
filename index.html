@@ -91,6 +91,10 @@
         colorChanger();
       });
 
+      function random(number) {
+        return Math.floor(Math.random() * number + 1);
+      }
+
       drawGrid(16);
       colorChanger();
 
@@ -98,7 +102,9 @@
         const innerDiv = document.querySelectorAll(".div");
         innerDiv.forEach((div) => {
           div.addEventListener("pointerenter", (event) => {
-            event.target.style.backgroundColor = "yellow";
+            event.target.style.backgroundColor = `rgb(${random(255)},${random(
+              255
+            )},${random(255)})`;
           });
         });
       }
