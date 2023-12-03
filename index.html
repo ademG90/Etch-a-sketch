@@ -17,9 +17,24 @@
         background-color: #777676;
         box-sizing: border-box;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
       }
+
+      .gridChange {
+        padding: 10px 20px;
+        border-radius: 8px;
+        background-color: rgb(0, 128, 255);
+        color: white;
+        margin-bottom: 20px;
+      }
+
+      .gridChange:hover {
+        background-color: rgb(48, 150, 253);
+        /* color: rgb(201, 201, 201); */
+      }
+
       .container {
         width: 500px;
         height: 500px;
@@ -41,6 +56,7 @@
     </style>
   </head>
   <body class="body">
+    <button class="gridChange">Change grid size</button>
     <div class="container"></div>
 
     <script>
@@ -54,20 +70,38 @@
           container.appendChild(div);
         }
       }
-      //   const grid = Number(prompt("Enter the grid number"));
-      drawGrid(16);
-      const innerDiv = document.querySelectorAll(".div");
-      //   container.addEventListener("pointerenter", (event) => {
-      //     console.log("mouseMove");
-      //     event.target.style.backgroundColor = "yellow";
-      //     event.stopPropagation();
-      //   });
-      innerDiv.forEach((div) => {
-        div.addEventListener("pointerenter", (event) => {
-          event.target.style.backgroundColor = "yellow";
-          //   event.stopPropagation();
+
+      const gridChangeBtn = document.querySelector(".gridChange");
+      gridChangeBtn.addEventListener("click", (event) => {
+        const grid = Number(prompt("Enter the grid number (less than 100)"));
+        // console.log()
+        console.log(Number.isInteger(grid));
+        while (grid > 100 || grid < 1) {
+          const grid = Number(
+            prompt("Please enter the grid number (less than 100)")
+          );
+        }
+        const innerDiv = document.querySelectorAll(".div");
+        console.log(innerDiv);
+        innerDiv.forEach((div) => {
+          container.removeChild(div);
         });
+
+        drawGrid(grid);
+        colorChanger();
       });
+
+      drawGrid(16);
+      colorChanger();
+
+      function colorChanger() {
+        const innerDiv = document.querySelectorAll(".div");
+        innerDiv.forEach((div) => {
+          div.addEventListener("pointerenter", (event) => {
+            event.target.style.backgroundColor = "yellow";
+          });
+        });
+      }
     </script>
   </body>
 </html>
