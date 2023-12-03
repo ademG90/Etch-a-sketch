@@ -35,6 +35,10 @@
         border: 1px solid red;
         display: inline-block;
       }
+
+      .background {
+        background-color: yellow;
+      }
     </style>
   </head>
   <body class="body">
@@ -51,8 +55,20 @@
           container.appendChild(div);
         }
       }
-      const grid = Number(prompt("Enter the grid number"));
-      drawGrid(grid);
+      //   const grid = Number(prompt("Enter the grid number"));
+      drawGrid(16);
+      const innerDiv = document.querySelectorAll(".div");
+      //   container.addEventListener("pointerenter", (event) => {
+      //     console.log("mouseMove");
+      //     event.target.style.backgroundColor = "yellow";
+      //     event.stopPropagation();
+      //   });
+      innerDiv.forEach((div) => {
+        div.addEventListener("pointerenter", (event) => {
+          event.target.style.backgroundColor = "yellow";
+          //   event.stopPropagation();
+        });
+      });
     </script>
   </body>
 </html>
