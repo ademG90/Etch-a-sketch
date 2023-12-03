@@ -32,7 +32,7 @@
 
       .gridChange:hover {
         background-color: rgb(48, 150, 253);
-        /* color: rgb(201, 201, 201); */
+        /* color: rgb(0, 150, 150); */
       }
 
       .container {
@@ -60,7 +60,17 @@
     <div class="container"></div>
 
     <script>
+      console.log("*******************************");
+      let colors = "rgb(323,33,532)";
+      console.log(colors);
+      [col1, col2, col3] = colors
+        .slice(colors.indexOf("(") + 1, colors.indexOf(")"))
+        .split(",");
+      console.log(col1, col2, col3);
+      console.log("*******************************");
       const container = document.querySelector(".container");
+      // console.log("color");
+      console.log(container.style.backgroundColor);
       function drawGrid(grid) {
         for (let i = 0; i < grid ** 2; i++) {
           const div = document.createElement("div");
@@ -102,9 +112,20 @@
         const innerDiv = document.querySelectorAll(".div");
         innerDiv.forEach((div) => {
           div.addEventListener("pointerenter", (event) => {
-            event.target.style.backgroundColor = `rgb(${random(255)},${random(
-              255
-            )},${random(255)})`;
+            if (event.target.style.backgroundColor == "") {
+              event.target.style.backgroundColor = `rgb(${random(255)},${random(
+                255
+              )},${random(255)})`;
+            } else {
+              const colors = event.target.style.backgroundColor;
+              [col1, col2, col3] = colors
+                .slice(colors.indexOf("(") + 1, colors.indexOf(")"))
+                .split(",");
+              event.target.style.backgroundColor = `rgb(
+                ${Math.floor(col1 - col1 * 0.1)},
+                ${Math.floor(col2 - col2 * 0.1)},
+                ${Math.floor(col3 - col3 * 0.1)})`;
+            }
           });
         });
       }
