@@ -45,7 +45,8 @@ label[for="slider"] {
   padding: 0.3rem 0.5rem;
   margin-bottom: 2rem;
   height: 3.4rem;
-  width: 23rem;
+  width: 28rem 6rem;
+  /*  how  is width is working? */
   border-radius: 6px;
   box-shadow: 1px 1px 2px 2px #efeeee73;
 }

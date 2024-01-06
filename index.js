@@ -32,47 +32,46 @@ function customColorChange(color) {
     });
   });
 }
+
+function colorChanger() {
+  if (DEFAULT_COLOR == "rainbow") {
+    randomColorChanger();
+  } else {
+    customColorChange(DEFAULT_COLOR);
+  }
+}
+
 // let add functionality to range
-let DEFAULT_COLOR = "rgb(255,0,0)";
+let DEFAULT_COLOR = "rgb(0,0,0)";
 
 const slider = document.querySelector("#slider");
 const output = document.querySelector("output");
-output.textContent = `  ${slider.value}`;
+output.textContent = `  ${slider.value} X ${slider.value}`;
 slider.addEventListener("input", () => {
-  output.textContent = `  ${slider.value}`;
+  output.textContent = `  ${slider.value} X ${slider.value}`;
 
   const innerDiv = document.querySelectorAll(".div");
   innerDiv.forEach((div) => {
     container.removeChild(div);
   });
 
-  drawGrid(output.textContent);
-  if (DEFAULT_COLOR == "rainbow") {
-    randomColorChanger();
-  } else {
-    customColorChange(DEFAULT_COLOR);
-  }
+  drawGrid(slider.value);
+  colorChanger();
 });
 
 const selectColor = document.querySelector(".select-color");
 selectColor.addEventListener("click", (event) => {
   DEFAULT_COLOR = event.target.value;
-
-  if (DEFAULT_COLOR == "rainbow") {
-    randomColorChanger();
-  } else {
-    customColorChange(DEFAULT_COLOR);
-  }
+  colorChanger();
 });
 
 const inputColor = document.querySelector(".input-color #color");
 inputColor.addEventListener("change", (event) => {
-  console.log("iputcolor");
-
   DEFAULT_COLOR = event.target.value;
-  customColorChange(DEFAULT_COLOR);
+  colorChanger();
 });
 
+// what happen when window is opened
 drawGrid(16);
 customColorChange(DEFAULT_COLOR);
 
@@ -80,7 +79,6 @@ const clearBtn = document.querySelector(".clear-btn");
 clearBtn.addEventListener("click", () => {
   const innerDiv = document.querySelectorAll(".div");
   innerDiv.forEach((div) => {
-    // container.removeChild(div);
     div.style.backgroundColor = "#fff";
   });
 });
