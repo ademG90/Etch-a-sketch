@@ -47,7 +47,11 @@ slider.addEventListener("input", () => {
   });
 
   drawGrid(output.textContent);
-  randomColorChanger(DEFAULT_COLOR);
+  if (DEFAULT_COLOR == "rainbow") {
+    randomColorChanger();
+  } else {
+    customColorChange(DEFAULT_COLOR);
+  }
 });
 
 const selectColor = document.querySelector(".select-color");
@@ -56,11 +60,17 @@ selectColor.addEventListener("click", (event) => {
 
   if (DEFAULT_COLOR == "rainbow") {
     randomColorChanger();
-    console.log("rainbow");
   } else {
-    console.log(DEFAULT_COLOR);
     customColorChange(DEFAULT_COLOR);
   }
+});
+
+const inputColor = document.querySelector(".input-color #color");
+inputColor.addEventListener("change", (event) => {
+  console.log("iputcolor");
+
+  DEFAULT_COLOR = event.target.value;
+  customColorChange(DEFAULT_COLOR);
 });
 
 drawGrid(16);
