@@ -1,6 +1,6 @@
 :root {
   font-size: 62.5%;
-  --container-width: 500px;
+  --container-width: 70vh;
 }
 
 * {
@@ -17,18 +17,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  flex-wrap: wrap;
+  gap: 3rem;
   font-size: 1.6rem;
 }
 
 .left-container {
   background-color: aqua;
-  width: 300px;
-  height: auto;
+  width: min(44vh, 40rem);
+  height: min(44vh, 40rem);
   padding: 4rem 2rem;
   background-color: rgb(235, 235, 235);
   border-radius: 1rem;
-  gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .container {
