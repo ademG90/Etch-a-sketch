@@ -1,5 +1,6 @@
 :root {
   font-size: 62.5%;
+  --container-width: 500px;
 }
 
 * {
@@ -14,15 +15,25 @@
   background-color: #777676;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+
   font-size: 1.6rem;
 }
 
+.left-container {
+  background-color: aqua;
+  width: 300px;
+  height: auto;
+  padding: 4rem 2rem;
+  background-color: rgb(235, 235, 235);
+  border-radius: 1rem;
+  gap: 4rem;
+}
+
 .container {
-  width: 500px;
-  height: 500px;
+  width: var(--container-width);
+  height: var(--container-width);
   background-color: white;
   display: flex;
   align-items: center;
@@ -86,6 +97,7 @@ button {
   width: 2.5rem;
   fill: brown;
   padding-left: 0.8rem;
+  border: 0;
 }
 
 .rainbow {

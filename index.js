@@ -60,10 +60,24 @@ slider.addEventListener("input", () => {
 });
 
 const selectColor = document.querySelector(".select-color");
-selectColor.addEventListener("click", (event) => {
-  DEFAULT_COLOR = event.target.value;
-  colorChanger();
-});
+selectColor.addEventListener(
+  "click",
+  (event) => {
+    // console.log(event.target.closest("button").value);
+    DEFAULT_COLOR = event.target.closest("button").value;
+    colorChanger();
+  },
+  true
+);
+
+// const rainbowColorSelector = document.querySelector(".rainbow");
+// rainbowColorSelector.addEventListener(
+//   "click",
+//   (event) => {
+//     DEFAULT_COLOR = event.value;
+//     colorChanger();
+//   }
+// );
 
 const inputColor = document.querySelector(".input-color #color");
 inputColor.addEventListener("change", (event) => {
