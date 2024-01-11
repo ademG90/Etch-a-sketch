@@ -70,15 +70,6 @@ selectColor.addEventListener(
   true
 );
 
-// const rainbowColorSelector = document.querySelector(".rainbow");
-// rainbowColorSelector.addEventListener(
-//   "click",
-//   (event) => {
-//     DEFAULT_COLOR = event.value;
-//     colorChanger();
-//   }
-// );
-
 const inputColor = document.querySelector(".input-color #color");
 inputColor.addEventListener("change", (event) => {
   DEFAULT_COLOR = event.target.value;
