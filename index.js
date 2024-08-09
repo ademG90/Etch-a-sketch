@@ -3,7 +3,7 @@ function drawGrid(grid) {
   const height = container.getBoundingClientRect().height;
   for (let i = 0; i < grid ** 2; i++) {
     const div = document.createElement("div");
-    div.setAttribute("class", "div");
+    div.setAttribute("class", `div item${i}`);
     div.style.width = `${height / grid}px`;
     div.style.height = `${height / grid}px`;
     container.appendChild(div);
